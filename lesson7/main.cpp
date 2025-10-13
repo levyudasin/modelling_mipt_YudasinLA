@@ -18,7 +18,7 @@ double x = -0.5;
 double v = 0;
 
 double v_t(double t, double x, double v){
-    return -omega*omega*sin(x) - beta * v;
+    return -omega*omega*x - beta * v;
 }
 
 double x_t(double t, double x, double v){
@@ -82,6 +82,9 @@ int main(int argc, char** argv){
     v_0 = configJson["v_0"];
     simTime = configJson["simTime"];
     beta = configJson["beta"];
+
+    v = v_0;
+    x = x_0;
 
     std::ofstream outFile;
     outFile.open(outputFileName);
